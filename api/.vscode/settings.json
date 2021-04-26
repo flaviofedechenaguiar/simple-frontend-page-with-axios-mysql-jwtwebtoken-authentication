@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "172.22.0.1",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "api-with-mysql",
+            "database": "api-database",
+            "username": "root",
+            "password": ""
+        }
+    ]
+}

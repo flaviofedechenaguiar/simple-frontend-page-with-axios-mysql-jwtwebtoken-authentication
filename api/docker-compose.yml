@@ -1,0 +1,25 @@
+version: "3.9"
+services: 
+    mysql-database:
+        image: mysql
+        container_name: mysql-api
+        restart: always
+        command: --default-authentication-plugin=mysql_native_password
+        environment: 
+            MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+            MYSQL_DATABASE: "api-database"
+        ports: 
+            - "3306:3306"
+        volumes:
+            - "./database/mysql:/var/lib/mysql"
+    node-api:
+        build: "./"
+        container_name: node-api
+        restart: always
+        volumes: 
+            - "./:/usr/app"
+        ports: 
+            - "3030:3030"
+        depends_on: 
+           - "mysql-database"
+        
